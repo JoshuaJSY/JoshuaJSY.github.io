@@ -215,19 +215,19 @@
 
 
   
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-使用hexo + github搭建个人博客并更换主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
+      <a class="article-title" href="/2022/06/22/%E4%BD%BF%E7%94%A8hexo%20+%20github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">windows环境下hexo + github搭建个人博客并更换主题</a>
     </h1>
   
 
         
-        <a href="/2022/06/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+        <a href="/2022/06/22/%E4%BD%BF%E7%94%A8hexo%20+%20github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" class="archive-article-date">
   	<time datetime="2022-06-22T01:51:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-22</time>
 </a>
         
@@ -235,11 +235,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+        <h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><p>下载nodejs：<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org</a></p>
+<p>安装nodejs：傻瓜式安装，一直点下一步即可。安装完之后会有两个组件，第一个是nodejs本身，另一个是npm包管理器。</p>
+<p>node -v 查看node的版本</p>
+<p>npm -v查看npm包管理器的版本</p>
+<p>利用npm安装cnpm：npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>cnpm -v查看cnpm版本</p>
+<p>cnpm install -g hexo-cli，安装hexo框架</p>
+<p>hexo -v查看hexo版本</p>
 <hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="使用hexo搭建博客"><a href="#使用hexo搭建博客" class="headerlink" title="使用hexo搭建博客"></a>使用hexo搭建博客</h2><p>在D盘新建一个文件夹blog，打开windows终端，进入blog文件夹。</p>
+<p>hexo init，初始化一个博客。提示Start blogging with Hexo！初始化完成。</p>
+<p>打开blog文件夹，发现生成了几个文件。</p>
+<p>启动博客：hexo s，访问给出的地址，发现已经创建了博客，并自动为你创建了一篇文章Hello World。这个命令平时一般作预览用。</p>
+<p>新建文章：hexo n “我的第一篇博客”。或者直接在D:\blog\source_posts下创建md文件。</p>
+<p>此时可以打开该文档进行编辑</p>
+<p>还是在blog目录下，hexo clean？然后hexo g，生成一下，这时候发现新建的文章已经出现在博客网站了。</p>
+<p>ctrl + c，断掉。</p>
 <hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>
+<h2 id="将博客部署到github上"><a href="#将博客部署到github上" class="headerlink" title="将博客部署到github上"></a>将博客部署到github上</h2><hr>
+<p>进入github，新建一个仓库，名称为：YourName.github.io。注意一定要是这个格式。</p>
+<p>在blog目录下，安装git的部署的插件：cnpm install –save hexo-deployer-git。出现warning忽略即可。</p>
+<p>打开_config.yml，在Deployment处：</p>
+<p>deploy:</p>
+<p> type: git</p>
+<p> repo: <a target="_blank" rel="noopener" href="https://github.com/JoshuaJSY/JoshuaJSY.github.io.git">https://github.com/JoshuaJSY/JoshuaJSY.github.io.git</a></p>
+<p> branch: main</p>
+<p>repo是你仓库的地址。注意github今年更新之后branch不能写master，只能写main。</p>
+<p>部署到远端：hexo d</p>
+<p>此时可能会报错：</p>
+<p><img src="C:\Users\26228\AppData\Roaming\Typora\typora-user-images\image-20220622175342182.png" alt="image-20220622175342182"></p>
+<p>按提示输入你的邮箱和名字，然后重新部署即可</p>
+<p>刷新一下github仓库，发现已经生成了一些东西</p>
+<p>此时就可以用仓库名访问博客了，比如我的就是JoshuaJSY.github.io。</p>
+<h2 id="更换yilia主题"><a href="#更换yilia主题" class="headerlink" title="更换yilia主题"></a>更换yilia主题</h2><p>地址：github.com&#x2F;litten&#x2F;hexo-theme-yilia</p>
+<p>在blog目录下新建一个theme文件夹，git clone github.com&#x2F;litten&#x2F;hexo-theme-yilia.git theme&#x2F;yilia，需要用到git，不会安装的自行百度。</p>
+<p>另一种方法，就是直接在上面的地址中下载该主题的zip压缩文件，然后解压缩到blog&#x2F;theme&#x2F;yilia中</p>
+<p>打开_config.yml，把Theme:landscape改成Theme：yilia</p>
+<p>hexo clean</p>
+<p>hexo g</p>
+<p>hexo s</p>
+<p>打开生成的端口，发现博客主题已经发生了变化</p>
+<p>推到远端：hexo d，推到github仓库中，就可以通过github的地址访问到更换主题后的博客</p>
+
       
 
       
@@ -251,7 +289,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/06/22/%E4%BD%BF%E7%94%A8hexo%20+%20github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">展开全文 >></a>
         </p>
       
 
