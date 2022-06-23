@@ -300,7 +300,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>此时可能会报错：</p>
-<p>![image-20220622185900953](.&#x2F;使用hexo + github搭建个人博客并更换主题&#x2F;image-20220622185900953-16558955522231.png)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Author identity unknown</span><br><span class="line">***Please tell me who you are</span><br><span class="line">Run</span><br><span class="line">	git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">	git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure>
+
 <p>按提示输入你的邮箱和名字，然后重新部署即可</p>
 <p>刷新一下github仓库，发现已经生成了一些东西</p>
 <p>此时就可以用仓库名访问博客了，比如我的就是JoshuaJSY.github.io。</p>
@@ -323,6 +324,21 @@
 
 <p>就可以通过github的地址访问到更换主题后的博客。比如我的地址为JoshuaJSY.github.io</p>
 <h2 id="写博客时遇到的一些问题"><a href="#写博客时遇到的一些问题" class="headerlink" title="写博客时遇到的一些问题"></a>写博客时遇到的一些问题</h2><h3 id="本地图片无法在远端显示"><a href="#本地图片无法在远端显示" class="headerlink" title="本地图片无法在远端显示"></a>本地图片无法在远端显示</h3><p>在本地写<code>MarkDown</code>文件时，上传的本地图片是无法实现在网络上或是在另外一台设备上访问的。</p>
+<p>我这里以Typora为例来解决这个问题。</p>
+<p>打开_config.yml，进行如下修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+
+<p>在终端blog目录下，安装一个图片路径转换插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>打开Typora的设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + ,</span><br></pre></td></tr></table></figure>
+
+<p>按下图进行设置</p>
+<p>将相对位置更改一下，用快捷键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl + f</span><br></pre></td></tr></table></figure>
+
+<p>查询所有“文章名&#x2F;”并替换为空，此时就可以在localhost端口看到图片显示了</p>
 
       
 
